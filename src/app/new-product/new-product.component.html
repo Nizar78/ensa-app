@@ -1,0 +1,23 @@
+<div class="p-3 col-md-8 mx-auto">
+  <div class="card">
+    <div class="card-body">
+     <form  [formGroup]="productForm" (ngSubmit)="saveProduct()" >
+       <div class="form-group my-2">
+         <label class="form-label">Name</label>
+         <input type="text"  formControlName="name" class="form-control"/><!-- Avec forControlName="name" , la valeur qu'on va entrer dans
+                                                                                  ce champ , va stocker dans productForm dans le champs name  -->
+       </div>
+       <div class="form-group my-2">
+         <label class="form-label">Price</label>
+         <input type="text"  formControlName="price" class="form-control"/>
+       </div>
+       <div class="form-group">
+         <label class="form-label">Checked</label>
+         <input type="checkbox" formControlName="checked" class="m-3"/>
+       </div>
+       <button [disabled]="productForm.invalid"  class="btn btn-success">Save</button>
+       <!-- Donc si l'utilisateur ne respect pas le validator qu'on a specifier , le button sera desactiver-->
+     </form>
+    </div>
+  </div>
+</div>

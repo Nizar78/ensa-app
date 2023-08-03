@@ -1,1 +1,42 @@
-HEllo word
+<nav class="p-3">
+
+      <!-- Ici pour eviter de repeter le code 3 fois on peut utiliser une boucle , pour cela d'abord on doit creer
+           une table des actions dans le modele et chaque action va presenter le path , le titre de cette element
+           qui sera afficher dans le buouton et le icon.
+      -->
+      <!--
+      <ul class="nav nav-pills">
+        <li>
+          <button routerLink="/home" class="btn btn-outline-success ms-1">
+            Home
+            <i class="bi bi-house"></i>    //i stands for icon
+          </button>
+        </li>
+        <li>
+          <button routerLink="/products"  class="btn btn-outline-success ms-1">
+            Produits
+            <i class="bi bi-arrow-down-up"></i> //Here we choose the icon randomly
+          </button>
+        </li>
+        <li>
+          <button  routerLink="/newProduct"  class="btn btn-outline-success ms-1">
+            New Produit
+            <i class="bi bi-plus-circle"></i> // Here we choose the icon randomly
+          </button>
+        </li>
+      </ul>-->
+      <ul class="nav nav-pills">
+        <li *ngFor="let action of actions">
+          <button
+            [class]="action==currentAction?'btn btn-success text-light ms-2':'btn btn-outline-success ms-2'"
+            (click)="setCurrentAction(action)"
+            routerLink="{{action.route}}"
+          >
+            {{action.title}}
+            <i class="bi bi-{{action.icon}}"></i>
+          </button>
+        </li>
+      </ul>
+
+</nav>
+<router-outlet></router-outlet>

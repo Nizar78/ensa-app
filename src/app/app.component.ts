@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ensa-app';
+
+  actions:Array<any> =[
+    {title:"Home", route:"/home", icon:"house"},
+    {title:"Products", route:"/products", icon:"arrow-down-up"},
+    {title:"New Product", route:"/newProduct", icon:"plus-circle"},
+  ];
+
+  // Maintenant , on veut savoir l'action current.
+
+  currentAction:any;
+  setCurrentAction(action:any){
+    this.currentAction = action;
+  }
+
 }

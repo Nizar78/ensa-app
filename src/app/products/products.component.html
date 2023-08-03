@@ -1,0 +1,38 @@
+<div class="p-3 col-md-8 mx-auto">
+  <div class="card">
+    <div class="card-body">
+          <div class="form-group my-3">
+            <input class="mx-4 p-1" type="search"  [(ngModel)]="keyword"/>
+            <button (click)="searchProducts()" class="btn btn-outline-success">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Checked</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products"> <!-- | async -->
+              <td>{{product.name}}</td>
+              <td>{{product.price}}</td>
+              <td>
+                <button class="btn btn-outline-success">
+                  <i [class]="product.checked? 'bi bi-check' : 'bi bi-circle'" (click)="handleCheckProduct(product)"></i>
+                </button>
+              </td>
+              <td >
+                <button (click)="handleDeleteProduct(product)" class="btn btn-outline-danger">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
